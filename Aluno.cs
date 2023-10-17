@@ -25,21 +25,23 @@
             ListarCursos();
             }
         }
-
         public void MatricularNoCurso(Curso curso)
         {
             Cursos.Add(curso);
-            Curso.AdicionarAluno(this);
+            curso.AdicionarAluno(this);
         }
-
         public override void ListarCursos()
         {
             Console.WriteLine($"Cursos matriculados:");
-            foreach (Curso curso in Cursos)
+            foreach (var curso in Cursos)
             {
                 Console.WriteLine($"Nome: {curso.Nome}");
                 Console.WriteLine($"Código do curso: {curso.CodigoDoCurso}");
-                Console.Write("Disciplina(s) do curso: "); Curso.ListarDisciplinas();
+                Console.Write("Disciplina(s) do curso: ");
+                foreach (var disciplina in curso.Disciplinas)
+                {
+                    Console.WriteLine($"{disciplina.Titulo}");
+                }
                 Console.WriteLine("------------------");
             }
         }

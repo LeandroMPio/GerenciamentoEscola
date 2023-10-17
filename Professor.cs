@@ -63,8 +63,22 @@
             {
                 Console.WriteLine($"Nome: {curso.Nome}");
                 Console.WriteLine($"Código do curso: {curso.CodigoDoCurso}");
-                Console.Write("Disciplina(s) lecionada(s): "); Curso.ListarDisciplinas();
-                Curso.ListarAlunos();
+                Console.Write("Disciplina(s) lecionada(s): ");
+                foreach (var disciplina in Disciplinas)
+                {
+                    Console.WriteLine($"{disciplina.Titulo}");
+                }
+                if(curso.Alunos.Count() == 0)
+                {
+                    Console.WriteLine("Nenhum aluno matriculado");
+                } else
+                {
+                    Console.WriteLine($"Alunos matriculados no curso:");
+                }
+                foreach (var aluno in curso.Alunos)
+                {
+                    Console.WriteLine($"{aluno.Nome} {aluno.Sobrenome}");
+                }
                 Console.WriteLine("------------------");
             }
         }

@@ -26,21 +26,13 @@
             Aluno aluno1 = new("Vagner", "Silva", 25);
             Aluno aluno2 = new("Leandro", "Pio", 38);
             Professor professor1 = new("Otavio", "Miranda", 27);
+            Professor professor2 = new("Amanda", "Mantovani", 23);
             Disciplina poo = new("Programação Orientada a Objeto", 10, "Introdução à Programação Orientada a Objetos; Introdução ao Diagrama de Classes da UML; Classes e\r\nMétodos; Encapsulamento e Sobrecarga; Sobreposição de Métodos; Construtores;\r\nHerança; Polimorfismo.");
-            //Disciplina logica = new("Logrica de Programação", 8, "Algoritmos; Análise e construção de algoritmos; Elementos Básicos. (tipos de dados, váriaveis e constantes, comandos, funções)");
+            Disciplina logica = new("Logica de Programação", 8, "Algoritmos; Análise e construção de algoritmos; Elementos Básicos. (tipos de dados, váriaveis e constantes, comandos, funções)");
             Curso cSharp = new("C Sharp");
+            Curso Java = new("Java");
             cSharp.AdicionarDisciplina(poo);
-
-            Console.WriteLine("Professor:");
-            professor1.ListarProfessor();
-            Console.WriteLine("---------------");
-            professor1.AtribuirDisciplina(poo);
-            professor1.ListarDisciplinas();
-
-            professor1.AtribuirCurso(cSharp);
-            professor1.ListarCursos();
-
-            professor1.ListarProfessor();
+            Java.AdicionarDisciplina(logica);
 
             Console.WriteLine("Aluno 1:");
             aluno1.ListarAluno();
@@ -53,15 +45,32 @@
             Console.WriteLine("Aluno 2:");
             aluno2.ListarAluno();
             Console.WriteLine("---------------");
-            aluno2.MatricularNoCurso(cSharp);
+            aluno2.MatricularNoCurso(Java);
             aluno2.ListarCursos();
 
             aluno2.ListarAluno();
 
-            Console.WriteLine("Curso:");
-            Curso.ListarAlunos();
+            Console.WriteLine("Professor 1:");
+            professor1.ListarProfessor();
+            Console.WriteLine("---------------");
+            professor1.AtribuirDisciplina(poo);
+            professor1.ListarDisciplinas();
 
+            professor1.AtribuirCurso(cSharp);
+            professor1.ListarCursos();
 
+            professor1.ListarProfessor();
+
+            Console.WriteLine("Professor 2:");
+            professor2.ListarProfessor();
+            Console.WriteLine("---------------");
+            professor2.AtribuirDisciplina(logica);
+            professor2.ListarDisciplinas();
+
+            professor2.AtribuirCurso(Java);
+            professor2.ListarCursos();
+
+            professor2.ListarProfessor();
         }
     }
 }
