@@ -4,10 +4,11 @@
     {
         protected List<Disciplina> Disciplinas { get; set; }
         protected int Id { get; set; }
-        public Professor(string nome, string sobrenome, int idade) : base(nome, sobrenome, idade)
+        public Professor(string nome, string sobrenome, int idade, Escola escola) : base(nome, sobrenome, idade)
         {
             Id = new Random().Next(9999);
             Disciplinas = new();
+            escola.Professores.Add(this);
             Cursos = new();
         }
 
@@ -63,7 +64,7 @@
             {
                 Console.WriteLine($"Nome: {curso.Nome}");
                 Console.WriteLine($"Código do curso: {curso.CodigoDoCurso}");
-                Console.Write("Disciplina(s) lecionada(s): ");
+                Console.WriteLine("Disciplina(s) lecionada(s): ");
                 foreach (var disciplina in Disciplinas)
                 {
                     Console.WriteLine($"{disciplina.Titulo}");

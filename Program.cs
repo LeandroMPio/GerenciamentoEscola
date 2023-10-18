@@ -1,4 +1,8 @@
-﻿namespace GerenciamentoEscola
+﻿using System.Data;
+using System.Net;
+using GerenciamentoEscola;
+
+namespace GerenciamentoEscola
 {
     /*
      * Sistema de Gerenciamento de Escola
@@ -18,59 +22,75 @@
         Crie testes na main. Não é necessário criar um menu e sim objetos que acionem todas as classes e métodos criados em uma ordem lógica que faça sentido.
 
         Adicionar carga horaria total ao curso, somando todas cargas horárias das disciplinas
-    */
-    internal class Program
+    */    
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Aluno aluno1 = new("Vagner", "Silva", 25);
-            Aluno aluno2 = new("Leandro", "Pio", 38);
-            Professor professor1 = new("Otavio", "Miranda", 27);
-            Professor professor2 = new("Amanda", "Mantovani", 23);
+            Escola escola = new("Ada tech");
+
+            Curso cSharp = new("C Sharp", escola);
+            Curso Java = new("Java", escola);
+
             Disciplina poo = new("Programação Orientada a Objeto", 10, "Introdução à Programação Orientada a Objetos; Introdução ao Diagrama de Classes da UML; Classes e\r\nMétodos; Encapsulamento e Sobrecarga; Sobreposição de Métodos; Construtores;\r\nHerança; Polimorfismo.");
             Disciplina logica = new("Logica de Programação", 8, "Algoritmos; Análise e construção de algoritmos; Elementos Básicos. (tipos de dados, váriaveis e constantes, comandos, funções)");
-            Curso cSharp = new("C Sharp");
-            Curso Java = new("Java");
+
             cSharp.AdicionarDisciplina(poo);
-            Java.AdicionarDisciplina(logica);
+            cSharp.AdicionarDisciplina(logica);
+            Java.AdicionarDisciplina(poo);
+            //Java.AdicionarDisciplina(logica);
+
+            Professor professor1 = new("Otavio", "Miranda", 27, escola);
+            Professor professor2 = new("Amanda", "Mantovani", 23, escola);
+
+            Aluno aluno1 = new("Vagner", "Silva", 25, escola);
+            Aluno aluno2 = new("Leandro", "Pio", 38, escola);            
 
             Console.WriteLine("Aluno 1:");
-            aluno1.ListarAluno();
             Console.WriteLine("---------------");
             aluno1.MatricularNoCurso(cSharp);
-            aluno1.ListarCursos();
-
             aluno1.ListarAluno();
+            Console.WriteLine("");
+            aluno1.ListarCursosMatriculados();
+            Console.WriteLine("");
+            aluno1.CargaHorariaDoCurso();
+            Console.WriteLine("");
 
             Console.WriteLine("Aluno 2:");
-            aluno2.ListarAluno();
             Console.WriteLine("---------------");
             aluno2.MatricularNoCurso(Java);
-            aluno2.ListarCursos();
-
             aluno2.ListarAluno();
+            Console.WriteLine("");
+            aluno2.ListarCursosMatriculados();
+            Console.WriteLine("");
+            aluno2.CargaHorariaDoCurso();
+            Console.WriteLine("");
 
             Console.WriteLine("Professor 1:");
-            professor1.ListarProfessor();
             Console.WriteLine("---------------");
-            professor1.AtribuirDisciplina(poo);
-            professor1.ListarDisciplinas();
-
-            professor1.AtribuirCurso(cSharp);
+            professor1.AtribuirCurso(Java);
             professor1.ListarCursos();
-
+            Console.WriteLine("");
+            professor1.AtribuirDisciplina(logica);
+            professor1.ListarDisciplinas();
+            Console.WriteLine("");
             professor1.ListarProfessor();
+            Console.WriteLine("");
+            professor1.CargaHorariaDoCurso();
+            Console.WriteLine("");
 
             Console.WriteLine("Professor 2:");
-            professor2.ListarProfessor();
             Console.WriteLine("---------------");
-            professor2.AtribuirDisciplina(logica);
-            professor2.ListarDisciplinas();
-
-            professor2.AtribuirCurso(Java);
+            professor2.AtribuirCurso(cSharp);
             professor2.ListarCursos();
-
+            Console.WriteLine("");
+            professor2.AtribuirDisciplina(poo);
+            professor2.ListarDisciplinas();
+            Console.WriteLine("");
             professor2.ListarProfessor();
+            Console.WriteLine("");
+            professor2.CargaHorariaDoCurso();
+
         }
     }
 }

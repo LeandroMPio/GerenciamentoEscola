@@ -7,12 +7,13 @@
         public List<Disciplina> ?Disciplinas { get; private set; }
         public List<Aluno> ?Alunos { get; private set; }
 
-        public Curso(string nome)
+        public Curso(string nome, Escola escola)
         {
             Nome = nome;
             CodigoDoCurso = new Random().Next(9999);
             Disciplinas = new();
             Alunos = new();
+            escola.Cursos.Add(this);
         }
 
         public void AdicionarDisciplina(Disciplina disciplina)
