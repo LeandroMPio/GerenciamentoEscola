@@ -5,12 +5,8 @@
         public string Nome { get; protected set; }
         public string Sobrenome { get; protected set; }
         protected List<Curso> Cursos { get; set; }
-        protected int Idade { get; set; }
+        public int Idade { get; protected set; }
 
-        public Pessoa()
-        {
-
-        }
         public Pessoa(string nome, string sobrenome, int idade)
         {
             Nome = nome;

@@ -90,7 +90,14 @@ namespace GerenciamentoEscola
             professor2.ListarProfessor();
             Console.WriteLine("");
             professor2.CargaHorariaDoCurso();
+            Console.WriteLine("");
 
+            Console.WriteLine("Escola:");
+            escola.ListarCursos();
+            Console.WriteLine("");
+            escola.ListarProfessores();
+            Console.WriteLine("");
+            escola.ListarAlunos();
         }
     }
 }
